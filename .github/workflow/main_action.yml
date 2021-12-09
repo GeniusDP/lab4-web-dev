@@ -1,8 +1,8 @@
 name: Format checking
 on:
-  pull_request:
+  push:
     branches:
-      - master
+      - working-branch
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
