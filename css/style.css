@@ -2,7 +2,6 @@ body {
     max-width: 37.5rem;
     margin: 0 auto;
     padding: 0 1.25rem;
-    font-family: 'Lato', sans-serif;
 }
 
 * {
@@ -12,6 +11,8 @@ body {
     --my_pink: #f99;
     --my_violet: #99f;
     --my_white: #fff;
+    --carousel_bg: #333;
+    font-family: 'Lato', sans-serif;
 }
 
 *::-webkit-scrollbar {
@@ -130,7 +131,7 @@ li {
     display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
-    background-color: #333;
+    background-color: var(--carousel_bg);
     background-clip: content-box;
     border: 0.25rem solid transparent;
     border-radius: 50%;
@@ -167,7 +168,7 @@ li {
 .carousel::after {
     content: '';
     z-index: 1;
-    background-color: #333;
+    background-color: var(--carousel_bg);
     background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;
     background-position: center center;
