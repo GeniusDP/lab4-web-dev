@@ -9,6 +9,9 @@ body {
     box-sizing: border-box;
     scrollbar-color: transparent transparent; /* thumb and track color */
     scrollbar-width: 0px;
+    --my_pink: #f99;
+    --my_violet: #99f;
+    --my_white: #fff;
 }
 
 *::-webkit-scrollbar {
@@ -59,12 +62,12 @@ li {
     position: relative;
     flex: 0 0 100%;
     width: 100%;
-    background-color: #f99;
+    background-color: var(--my_pink);
     counter-increment: item;
 }
 
 .carousel__slide:nth-child(even) {
-    background-color: #99f;
+    background-color: var(--my_violet);
 }
 
 .carousel__slide:before {
@@ -73,7 +76,7 @@ li {
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -40%, 70px);
-    color: #fff;
+    color: var(--my_white);
     font-size: 2em;
 }
 
@@ -168,7 +171,7 @@ li {
     background-size: 1.5rem 1.5rem;
     background-repeat: no-repeat;
     background-position: center center;
-    color: #fff;
+    color: var(--my_white);
     font-size: 2.5rem;
     line-height: 4rem;
     text-align: center;
