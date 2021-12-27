@@ -1,99 +1,143 @@
-/* скрываем чекбокс */
-#menu__toggle {
+*{
+    margin: 0;
+    padding: 0;
+    --main-color-white: white;
+    --transpered-white: rgba(255, 255, 255, 0.75);
+    --transpered: rgba(255, 255, 255, 1);;
+    --bg-color-blue: #4480a8;
+    --bg-color-grey: #474d59;
+    --bg-color-light-grey: #ccc;
+    font-family: "Apple Chancery", cursive;
+    font-size: 1.5rem;
+}
+.menu-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.menu-wrap .toggler{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    cursor: pointer;
+    width: 50px;
+    height:  50px;;
     opacity: 0;
 }
-/* стилизуем кнопку */
-.menu__btn {
-    display: flex; /* используем flex для центрирования содержимого */
-    align-items: center; /* центрируем содержимое кнопки */
+
+.menu-wrap .backdrop{
+    display: none;
+    background-color: transparent;
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
     z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
-/* добавляем "гамбургер" */
-.menu__btn > span,
-.menu__btn > span::before,
-.menu__btn > span::after {
-    display: block;
+
+.menu-wrap .burger{
     position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    width:  60px;
+    height:  60px;
+    background-color: var(--main-color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-wrap .burger > div{
+    position: relative;
+    height: 2px;
+    width: 80%;
+    background-color: var(--bg-color-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.menu-wrap .burger > div:before{
+    content: '';
+    position: absolute;
+    z-index: 4;
+    top: -10px;
     width: 100%;
     height: 2px;
-    background-color: #616161;
-}
-.menu__btn > span::before {
-    content: '';
-    top: -8px;
-}
-.menu__btn > span::after {
-    content: '';
-    top: 8px;
+    background: inherit;
 }
 
-/* контейнер меню */
-.menu__box {
-    display: block;
+.menu-wrap .menu{
     position: fixed;
-    visibility: hidden;
+    z-index: 3;
     top: 0;
-    left: -100%;
-    width: 300px;
+    left: 0;
     height: 100%;
-    margin: 0;
-    padding: 80px 0;
-    list-style: none;
-    text-align: center;
-    background-color: #eceff1;
-    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
-    z-index: inherit;
-}
-/* элементы меню */
-.menu__item {
-    display: block;
-    padding: 12px 24px;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    z-index: inherit;
-}
-.menu__item:hover {
-    background-color: #cfd8dc;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
+.menu-wrap .menu > div{
+    background: var(--transpered-white);
+    height: 100%;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition: all 0.4s ease;
 }
-#menu__toggle:checked ~ .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0);
+
+.menu-wrap .menu > div > div{
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
-#menu__toggle:checked ~ .menu__btn > span::after {
-    top: 0;
+
+.menu-wrap .toggler:checked + .burger > div{
+    transform: rotate(135deg);
+}
+
+.menu-wrap .toggler:checked + .burger > div:before{
+    top:0;
     transform: rotate(90deg);
 }
-#menu__toggle:checked ~ .menu__box {
-    visibility: visible;
-    left: 0;
-}
-.menu__btn > span,
-.menu__btn > span::before,
-.menu__btn > span::after {
-    transition-duration: 0.25s;
-}
-.menu__box {
-    transition-duration: 0.25s;
-    z-index: inherit;
-}
-.menu__item {
-    transition-duration: 0.25s;
-    z-index: inherit;
+
+.menu-wrap .toggler:checked ~ .backdrop{
+    display: block;
 }
 
-.hamburger-menu {
-    z-index: 1;
+.menu-wrap .toggler:checked ~ .menu{
+    visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div{
+    transform: translateX(0);
+    transition-duration: 0.75s;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div{
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+li{
+    list-style: none;
+    color: var(--bg-color-blue);
+    padding: 1rem;
+}
+
+a{
+    color: var(--bg-color-blue);
+    text-decoration: none;
+    transition: color 0.4s ease;
 }

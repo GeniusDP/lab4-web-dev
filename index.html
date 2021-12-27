@@ -12,18 +12,24 @@
     <body>
         <!---->
         <p>This carousel is created with HTML and CSS only;)</p>
-        <div class="hamburger-menu">
-            <input id="menu__toggle" type="checkbox" />
-            <label class="menu__btn" for="menu__toggle">
-                <span></span>
-            </label>
-            <ul class="menu__box">
-                <li><a class="menu__item" href="#">Главная</a></li>
-                <li><a class="menu__item" href="#">Проекты</a></li>
-                <li><a class="menu__item" href="#">Команда</a></li>
-                <li><a class="menu__item" href="#">Блог</a></li>
-                <li><a class="menu__item" href="#">Контакты</a></li>
-            </ul>
+        <div class="menu-wrap">
+            <input type="checkbox" class="toggler" id="toggler">
+            <div class="burger">
+                <div></div>
+            </div>
+            <label class="backdrop" for="toggler"></label>
+            <div class="menu">
+                <div>
+                    <nav>
+                        <ul>
+                            <li><a href=".">First</a></li>
+                            <li><a href=".">Second</a></li>
+                            <li><a href=".">Third</a></li>
+                            <li><a href=".">Fourth</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
         <section class="carousel" aria-label="Gallery">
             <ol class="carousel__viewport">
